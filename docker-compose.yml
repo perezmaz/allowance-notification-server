@@ -1,0 +1,12 @@
+version: '2'
+services:
+  mesadas-notification-server:
+    build: .
+    ports:
+      - "${PORT}:8080"            
+      - "${SOCKET_PORT}:8081"
+    command: "yarn start"
+    env_file:
+      - .env    
+    tty: true
+    stdin_open: true
