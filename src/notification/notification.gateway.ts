@@ -14,7 +14,8 @@ import SendNotificationDto from './dto/send-notification.dto';
 
 @WebSocketGateway(webSocket.PORT)
 export class NotificationGateway
-  implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
+  implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect
+{
   @WebSocketServer()
   server: Server;
 
@@ -35,6 +36,11 @@ export class NotificationGateway
 
   @SubscribeMessage('newNotification')
   sendNotification(@MessageBody() data: SendNotificationDto): void {
-    this.server.emit('newNotification', data);
+    const { channel } = data;
+    if (channel) {
+      this.server.to(channel).emit('newNotification', data);
+    } else {
+      this.server.emit('newNotification', data);
+    }
   }
 }

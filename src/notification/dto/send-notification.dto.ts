@@ -13,4 +13,10 @@ export default class SendNotificationDto {
   @IsNotEmpty()
   @IsString()
   username: string;
+
+  @IsString()
+  to: string;
+
+  @IsString()
+  channel: string;
 }

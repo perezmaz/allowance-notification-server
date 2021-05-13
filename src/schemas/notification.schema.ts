@@ -5,12 +5,6 @@ import * as mongoose from 'mongoose';
 class User extends Document {
   @Prop({ required: true })
   _id: mongoose.Types.ObjectId;
-
-  @Prop()
-  username: string;
-
-  @Prop()
-  name: string;
 }
 
 export type NotificationDocument = Notification & Document;
