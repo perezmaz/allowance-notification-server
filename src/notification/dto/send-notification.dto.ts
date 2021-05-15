@@ -10,10 +10,6 @@ export default class SendNotificationDto {
   @IsString()
   user: string;
 
-  @IsNotEmpty()
-  @IsString()
-  username: string;
-
   @IsString()
   to: string;
 

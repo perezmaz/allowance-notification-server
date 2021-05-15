@@ -40,7 +40,6 @@ export class NotificationService {
       const newData = {
         userFrom: {
           _id: findedUser._id,
-          username: findedUser.username,
           name:
             findedUser.role === 'parent'
               ? findedUser.parent.name || 'No Name'
@@ -60,7 +59,6 @@ export class NotificationService {
       const broadcastData = {
         user: newData.userFrom.name,
         message,
-        username: newData.userFrom.username,
         to,
       };
 
