@@ -9,10 +9,9 @@ import {
   WebSocketServer,
 } from '@nestjs/websockets';
 import { Server } from 'socket.io';
-import { webSocket } from '../config';
 import SendNotificationDto from './dto/send-notification.dto';
 
-@WebSocketGateway(webSocket.PORT)
+@WebSocketGateway()
 export class NotificationGateway
   implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect
 {

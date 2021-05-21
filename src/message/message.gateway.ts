@@ -5,10 +5,9 @@ import {
   WebSocketServer,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-import { webSocket } from '../config';
 import SendMessageDto from './dto/send-message.dto';
 
-@WebSocketGateway(webSocket.PORT)
+@WebSocketGateway()
 export class MessageGateway {
   @WebSocketServer()
   server: Server;
