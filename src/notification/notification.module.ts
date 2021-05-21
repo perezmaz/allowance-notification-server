@@ -16,7 +16,9 @@ import { db } from '../config';
       timeout: 5000,
       maxRedirects: 5,
     }),
-    MongooseModule.forRoot(`mongodb://${db.HOST}:${db.PORT}/${db.DATABASE}`),
+    MongooseModule.forRoot(
+      `mongodb+srv://${db.USER}:${db.PASSWORD}@${db.HOST}/${db.DATABASE}?retryWrites=true&w=majority`,
+    ),
     MongooseModule.forFeature([
       { name: Notification.name, schema: NotificationSchema },
       { name: User.name, schema: UserSchema },
